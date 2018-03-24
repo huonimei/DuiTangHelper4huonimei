@@ -36,6 +36,9 @@ function decodeURI2Console() {
             var hrefs = $(".l-title");
             for (var a = 0; a < hrefs.length; a++) {
                 var AfterUrlDecode = decodeURI(hrefs[a].getAttribute("href").substring(64, hrefs[a].getAttribute("href").length));
+                hrefs[a].setAttribute("href", AfterUrlDecode);
+                hrefs[a].setAttribute("target", "view_window");
+                $(".l-title")[a].setAttribute("onmousedown", alert(1));
                 console.error($(".l-title>span").html());
                 console.error(decodeURIComponent(AfterUrlDecode));
             }
@@ -44,12 +47,20 @@ function decodeURI2Console() {
             var hrefArray = $(".match-cnt>a");
             for (var b = 0; b < hrefArray.length; b++) {
                 var AfterDecodeUrl = decodeURI($(".match-cnt>a")[b].getAttribute("href").substring(36, $(".match-cnt>a")[b].getAttribute("href").length));
+                hrefArray[b].setAttribute("href", AfterDecodeUrl);
+                hrefArray[b].setAttribute("target", "view_window");
+                $(".match-cnt>a")[b].setAttribute("onmousedown", doReplaceUrlJump(AfterDecodeUrl));
                 console.error($(".match-item>div>p.match-text")[b].innerHTML);
                 console.error(decodeURIComponent(AfterDecodeUrl));
             }
         }
     }
 }
+// 替换跳转连接
+function doReplaceUrlJump(AfterDecodeUrl) {
+    window.open(decodeURIComponent(AfterDecodeUrl), '_blank');
+}
+
 $(function () {
     if (callcount < 1) {
         closeWindow();
