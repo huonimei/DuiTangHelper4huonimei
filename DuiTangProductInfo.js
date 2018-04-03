@@ -39,8 +39,6 @@ function decodeURI2Console() {
                 hrefs[a].setAttribute("href",AfterUrlDecode);
                 hrefs[a].setAttribute("target","view_window");
                 $(".l-title")[a].setAttribute("onmousedown",doReplaceUrlJump(AfterUrlDecode));
-                console.error($(".l-title>span").html());
-                console.error(decodeURIComponent(AfterUrlDecode));
             }
         }
         if ($(".match-cnt>a").length > 0) {
@@ -50,8 +48,6 @@ function decodeURI2Console() {
                 hrefArray[b].setAttribute("href",AfterDecodeUrl);
                 hrefArray[b].setAttribute("target","view_window");
                 $(".match-cnt>a")[b].setAttribute("onmousedown",doReplaceUrlJump(AfterDecodeUrl));
-                console.error($(".match-item>div>p.match-text")[b].innerHTML);
-                console.error(decodeURIComponent(AfterDecodeUrl));
             }
         }
     }
