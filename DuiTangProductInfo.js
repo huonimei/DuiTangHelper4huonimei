@@ -18,8 +18,8 @@
 // @run-at              document-idle
 // @include             https://www.duitang.com/*
 
-// @date                03/22/2018
-// @modified            03/22/2018
+// @date                01/02/2019
+// @modified            01/02/2019
 // @version             0.1
 // ==/UserScript==
 // 关闭弹出的登录框校验次数 只运行一次
@@ -52,9 +52,10 @@ function decodeURI2Console() {
         }
     }
 }
-// 打开商品详情页自动跳转到淘宝
+// 打开商品详情页在控制台打印淘宝地址 因为跳转会被chrome等浏览器拦截
 function doReplaceUrlJump(AfterDecodeUrl){
-    window.open(decodeURIComponent(AfterDecodeUrl), '_blank');
+    console.log(decodeURIComponent(AfterDecodeUrl));
+    //window.open(decodeURIComponent(AfterDecodeUrl), '_blank');
 }
 
 $(function () {
